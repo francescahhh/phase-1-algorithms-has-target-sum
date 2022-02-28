@@ -1,5 +1,13 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const seenNumbers = {};
+
+  for (const number of array) {
+    const complement = target - number;
+    if (complement in seenNumbers) return true;
+    seenNumbers[number] = true;
+  }
+
+  return false;
 }
 
 /* 
@@ -8,6 +16,7 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+  hasTargetSum should check each number in the array, iterating over all the other numbers in the array to see if added to each subsequent number would === the target number
 */
 
 /*
